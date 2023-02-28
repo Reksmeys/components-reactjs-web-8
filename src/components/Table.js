@@ -6,16 +6,16 @@ class Table extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            fullname: "Vandeth",
-            age: 30
+            title: "Graphic Design Masterclass",
+            desc: "Rooms oh fully taken by worse do Points afraid but may end Rooms"
         }
     }
     changeStudent = () => {
         // change value of state, we used setState()
         console.log("function called");
         this.setState({
-            fullname: "Mengheang",
-            age: 40
+            title: "Create a Design System in Figma",
+            desc: "Rooms oh fully taken by worse do. Points afraid but may end afraid but"
         })
     }
     componentDidMount(){
@@ -26,11 +26,14 @@ class Table extends React.Component{
         console.log("render in Table");
         return(
             <div className="card">
-                <h5 className="card-header">{this.state.fullname}</h5>
+                <h5 className="card-header">Course Available</h5>
                 <div className="card-body">
-                    <img src="https://dummyimage.com/800x300/dddddd/fff.png&text=Responsive+Image" className="img-fluid" alt="..."/>
-                    <h5 className="card-title">He is {this.state.age}</h5>
-                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <img src="https://eduport.webestica.com/assets/images/courses/4by3/02.jpg" className="img-fluid" alt="course"/>
+                    <h5 className="card-title mt-2">{this.state.title}</h5>
+                    <p className="card-text">{this.state.desc}</p>
+                    {
+                        this.state.title.length > 0 && <h2>You have {this.state.title.length} unread message</h2>
+                    }
                     <a href="#" className="btn btn-primary" onClick={this.changeStudent}>Change Value</a>
                 </div>
             </div>
