@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import Card from './components/Card'
+import './style.css';
 import Table from './components/Table';
 import { Container, Navbar } from 'react-bootstrap';
 import Navbars from './components/Navbar';
 import Banner  from './components/Banner';
 import Footer from './components/Footer';
+import Cards from './components/Cards';
 
 function App() {
   return (
@@ -15,18 +16,7 @@ function App() {
      </Container>
       <div className='container mt-2'>
         <div className="row g-2">
-            <div className='col-12 col-sm-12 col-md-4 col-lg-3'>
-                <Table />
-            </div>
-            <div className='col-12 col-sm-12 col-md-4 col-lg-3'>
-                <Table />
-            </div>
-            <div className='col-12 col-sm-12 col-md-4 col-lg-3'>
-                <Table />
-            </div>
-            <div className='col-12 col-sm-12 col-md-4 col-lg-3'>
-                <Table />
-            </div>
+            <Cards />
         </div>
       </div>
       <Container className='mt-2'>
