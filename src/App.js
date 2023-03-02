@@ -15,7 +15,7 @@ function App() {
             <Navbars />
      </Container>
       <div className='container mt-2'>
-        <div className="row g-2">
+        <div className="row g-3">
             <Cards />
         </div>
       </div>
