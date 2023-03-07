@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
-function Cards({movies, title}) {
+function Cards({products}) {
     
   return (
-    movies && movies.map(movie => (
+    products && products.map(product => (
             <div className="col-sm-6 col-lg-4 col-xl-3">
             <div className="card shadow h-100">
-                <img src={"https://image.tmdb.org/t/p/w440_and_h660_face" + movie.poster_path} className="card-img-top" alt="course image" />
+                <img src={product.images[0]} className="card-img-top" alt="course image" />
 
                 <div className="card-body pb-0">
                 
                     <div className="d-flex justify-content-between mb-2">
-                        <a href="#" className="badge bg-purple bg-opacity-10 text-purple">other</a>
+                        <a href="#" className="badge bg-purple bg-opacity-10 text-purple">{product.category.name}</a>
                         <a href="#" className="h6 mb-0"><i className="far fa-heart"></i></a>
                     </div>
             
-                    <h5 className="card-title fw-normal"><a href="#">{movie.title}</a></h5>
-                    <p className="mb-2 text-truncate-2">desc</p>
+                    <h5 className="card-title fw-normal"><Link to={`/read/${product.id}`}>{product.title}</Link></h5>
+                    <p className="mb-2 text-truncate-2">{product.description}</p>
                     
                     <ul className="list-inline mb-0">
                         <li className="list-inline-item me-0 small"><i className="fas fa-star text-warning"></i></li>
