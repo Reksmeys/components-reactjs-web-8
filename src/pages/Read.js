@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { fetchDetailProduct } from '../actions/ProductActions'
 
 export default function Read() {
 
@@ -14,13 +15,11 @@ export default function Read() {
         }
     })
 
-    const fetchDetailProduct = (myid) => {
-        fetch(`https://api.escuelajs.co/api/v1/products/${myid}`)
-        .then(res => res.json())
-        .then(response => setProduct(response))
-    }
+    
     useEffect(() => {
         fetchDetailProduct(id)
+        .then(res => res.json())
+        .then(resp => setProduct(resp))
         console.log(id);
     }, [])
   return (

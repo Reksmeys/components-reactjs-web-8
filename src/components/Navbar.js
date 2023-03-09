@@ -1,41 +1,37 @@
 import React from 'react'
-import { NavLink } from 'react-bootstrap';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'
 
-class Navbars extends React.Component{
-    render(){
-        return (
-            <Navbar bg="warning" expand="lg">
-              <Container>
-                <Link to={"/"}>ទំព័រដើម</Link>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                  <Nav className="me-auto">
-                    <Link to={"/read"}>
-                      អានបន្ថែម
-                    </Link>
-                    <Nav.Link href="#link">Link</Nav.Link>
-                    <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                      <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.2">
-                        Another action
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                      <NavDropdown.Divider />
-                      <NavDropdown.Item href="#action/3.4">
-                        Separated link
-                      </NavDropdown.Item>
-                    </NavDropdown>
-                  </Nav>
-                </Navbar.Collapse>
-              </Container>
-            </Navbar>
-          );
-    }
+export default function Navbar() {
+  // useNavigate()
+  const navigate = useNavigate()
+  return (
+    <>
+        <header class="p-3 text-bg-dark">
+          <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+              <Link to={"/"} class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"></svg>
+              </Link>
+
+              <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><Link to={"/"} class="nav-link px-2 text-secondary">Home</Link></li>
+                <li><Link to={"/"} class="nav-link px-2 text-white">Features</Link></li>
+                <li><Link to={"/"} class="nav-link px-2 text-white">Pricing</Link></li>
+                <li><Link to={"/"} class="nav-link px-2 text-white">FAQs</Link></li>
+                <li><Link to={"/about"} class="nav-link px-2 text-white">About</Link></li>
+              </ul>
+
+              <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search" />
+              </form>
+
+              <div class="text-end">
+                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                <button type="button" class="btn btn-warning" onClick={() => navigate("/create")}>Insert Product</button>
+              </div>
+            </div>
+          </div>
+        </header>
+    </>
+  )
 }
-
-export default Navbars;

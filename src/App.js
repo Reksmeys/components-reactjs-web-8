@@ -13,6 +13,8 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Read from './pages/Read';
 import NotFound from './pages/404';
+import About from './pages/About';
+import CreateProduct from './pages/CreateProduct';
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
           <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/read/:id' element={<Read />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/create' element={<CreateProduct />} />
               <Route path='*' element={<NotFound />} />
           </Routes>
       </>
